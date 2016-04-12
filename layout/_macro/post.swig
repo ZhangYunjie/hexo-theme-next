@@ -11,7 +11,7 @@
 
   <article class="{{ post_class }}" itemscope itemtype="http://schema.org/Article">
 
-    {% if not headlessPost %}
+    {% if not headlessPost or post.type === 'picture' %}
       <header class="post-header">
 
         {# Not to show title for quote posts that do not have a title #}
@@ -183,13 +183,12 @@
         {{ post.content }}
       {% endif  %}
     </div>
-    
+
     <div>
       {% if ! is_index %}
         {% include 'wechat-subscriber.swig' %}
       {% endif %}
     </div>
-
     <div>
       {% if ! is_index %}
         {% include 'reward.swig' %}
@@ -197,6 +196,19 @@
     </div>
 
     <footer class="post-footer">
+      {% if not is_index %}
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Blog Bar 1 -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-4071888081309947"
+               data-ad-slot="1022204317"
+               data-ad-format="auto"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      {% endif %}
+
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
           {% for tag in post.tags %}
