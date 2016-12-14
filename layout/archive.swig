@@ -7,6 +7,9 @@
 {% block page_class %} page-archive {% endblock %}
 
 {% block content %}
+  <style>
+    img { height: 150px; }
+  </style>
 
   <section id="posts" class="posts-collapse">
     <span class="archive-move-on"></span>
